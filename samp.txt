@@ -1,0 +1,27 @@
+
+    '''
+    dcc.Graph(
+        id='example-graph',
+        figure = fig
+    )
+    '''
+
+    from win32com.client import GetObject
+objWMI = GetObject('winmgmts:\\\\.\\root\\SecurityCenter2').InstancesOf('AntiVirusProduct')
+
+for obj in objWMI:
+	if obj.displayName != None:
+		print("displayName:" + str(obj.displayName))
+	if obj.instanceGuid != None:
+		print("instanceGuid:" + str(obj.instanceGuid))
+	if obj.pathToSignedProductExe != None:
+		print("pathToSignedProductExe:" + str(obj.pathToSignedProductExe))
+	if obj.pathToSignedReportingExe != None:
+		print("pathToSignedReportingExe:" + str(obj.pathToSignedReportingExe))
+	if obj.productState != None:
+		print("productState:" + str(obj.productState))
+	if obj.timestamp != None:
+		print("timestamp:" + str(obj.timestamp))
+	print("")
+	print("########")
+	print("")
